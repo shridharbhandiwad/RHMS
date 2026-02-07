@@ -48,7 +48,6 @@ bool HierarchicalGraphEngine::drillDown(SubsystemNode* node)
     
     // Push current level onto stack
     NodeGraphScene* currentScene = this->currentScene();
-    SubsystemNode* currentParent = currentParentNode();
     int currentDepth = m_navigationStack.size();
     
     GraphLevel level(currentScene, node, currentDepth);

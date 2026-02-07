@@ -114,7 +114,7 @@ void NodeGraphView::wheelEvent(QWheelEvent* event)
     // Zoom with mouse wheel
     if (event->modifiers() & Qt::ControlModifier) {
         qreal factor = std::pow(1.15, event->angleDelta().y() / 120.0);
-        zoom(factor, event->position().toPoint());
+        zoom(factor, event->pos());
         event->accept();
     } else {
         QGraphicsView::wheelEvent(event);
@@ -221,7 +221,7 @@ void NodeGraphView::resizeEvent(QResizeEvent* event)
     emit viewportChanged();
 }
 
-void NodeGraphView::zoom(qreal factor, const QPoint& centerPos)
+void NodeGraphView::zoom(qreal factor, const QPoint& /*centerPos*/)
 {
     qreal newZoom = m_zoomLevel * factor;
     
