@@ -485,7 +485,8 @@ void MainWindow::showHelp()
 void MainWindow::createNodeFromToolbox(const QString& subsystemType)
 {
     // Convert display name to type
-    QString nodeType = subsystemType.remove(' ');
+    QString nodeType = subsystemType;
+    nodeType.remove(' ');
     
     // Create node using factory
     SubsystemNode* node = RadarSubsystem::instance().createSubsystem(nodeType, this);

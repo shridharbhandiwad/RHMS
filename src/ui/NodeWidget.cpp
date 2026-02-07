@@ -30,10 +30,10 @@ NodeWidget::NodeWidget(SubsystemNode* node, QGraphicsItem* parent)
     
     // Connect to node signals for live updates
     if (m_node) {
-        connect(m_node, &SubsystemNode::healthStatusChanged,
-                this, [this]() { update(); });
-        connect(m_node, &SubsystemNode::nodeNameChanged,
-                this, [this]() { update(); });
+        QObject::connect(m_node, &SubsystemNode::healthStatusChanged,
+                         m_node, [this]() { update(); });
+        QObject::connect(m_node, &SubsystemNode::nodeNameChanged,
+                         m_node, [this]() { update(); });
     }
 }
 
