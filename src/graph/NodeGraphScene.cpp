@@ -8,6 +8,7 @@
 #include "../ui/NodeWidget.h"
 #include "../core/SubsystemNode.h"
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsView>
 #include <QKeyEvent>
 #include <QDebug>
 #include <cmath>
