@@ -8,6 +8,7 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include "../core/TelemetryPacket.h"
 
 class NodeGraphScene;
 class NodeGraphView;
@@ -18,6 +19,7 @@ class TelemetryLogWindow;
 class UdpTelemetryReceiver;
 class HealthStatusDispatcher;
 class HierarchicalGraphEngine;
+class SubsystemNode;
 
 /**
  * @class MainWindow

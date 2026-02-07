@@ -133,8 +133,8 @@ HealthStatus HealthStatus::deserialize(const QString& data)
     HealthStatus status;
     status.m_code = static_cast<HealthCode>(json["code"].toInt());
     status.m_message = json["message"].toString();
-    status.m_timestamp = json["timestamp"].toVariant().toLongLong();
-    status.m_lastUpdate = json["lastUpdate"].toVariant().toLongLong();
+    status.m_timestamp = static_cast<qint64>(json["timestamp"].toDouble());
+    status.m_lastUpdate = static_cast<qint64>(json["lastUpdate"].toDouble());
     
     return status;
 }
