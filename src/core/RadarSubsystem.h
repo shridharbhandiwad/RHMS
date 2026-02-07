@@ -9,6 +9,7 @@
 #include <QString>
 #include <QStringList>
 #include <QMap>
+#include <QObject>
 #include <functional>
 
 class SubsystemNode;

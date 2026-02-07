@@ -54,7 +54,7 @@ QByteArray TelemetryPacket::serialize() const
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
-    stream.setVersion(QDataStream::Qt_5_15);
+    stream.setVersion(QDataStream::Qt_5_12);
     
     stream << m_subsystemId;
     stream << static_cast<int>(m_healthCode);
@@ -69,7 +69,7 @@ TelemetryPacket TelemetryPacket::deserialize(const QByteArray& data)
 {
     TelemetryPacket packet;
     QDataStream stream(data);
-    stream.setVersion(QDataStream::Qt_5_15);
+    stream.setVersion(QDataStream::Qt_5_12);
     
     int healthCodeInt;
     stream >> packet.m_subsystemId;
@@ -114,7 +114,7 @@ TelemetryPacket TelemetryPacket::fromJson(const QString& json)
     packet.m_subsystemId = root["subsystem_id"].toString();
     packet.m_healthCode = static_cast<HealthCode>(root["health_code"].toInt());
     packet.m_healthMessage = root["health_message"].toString();
-    packet.m_timestamp = root["timestamp"].toVariant().toLongLong();
+    packet.m_timestamp = static_cast<qint64>(root["timestamp"].toDouble());
     
     QJsonObject params = root["parameters"].toObject();
     for (auto it = params.begin(); it != params.end(); ++it) {
